@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plomberie Facile - 10 Guides Essentiels</title>
+    <style>
+        /* --- STYLES GLOBAUX --- */
+        :root {
+            --primary-color: #1a202c;
+            --accent-color: #d69e2e;
+            --link-color: #2b6cb0;
+            --text-color: #333;
+            --bg-color: #fcfcfc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* --- CONTENU PRINCIPAL --- */
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            min-height: 60vh;
+        }
+
+        .page-section {
+            display: none; 
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .page-section.active {
+            display: block; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+        }
+        h2 { font-size: 1.6rem; color: var(--primary-color); margin-top: 30px; }
+        h3 { font-size: 1.3rem; color: var(--primary-color); margin-top: 20px;}
+        ul, ol { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+
+        /* --- LISTE DES ARTICLES (ACCUEIL) --- */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+        }
+        .article-item {
+            text-decoration: none;
+            color: inherit;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .article-item:hover {
+            background-color: #f7fafc;
+            padding-left: 10px;
+        }
+        .article-title {
+            color: var(--link-color);
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin: 0 0 5px 0;
+        }
+        .article-category {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        /* --- STYLE DES ARTICLES --- */
+        .article-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--link-color);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .back-btn:hover { text-decoration: underline; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: #a0aec0;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            margin-top: 50px;
+        }
+        footer a {
+            color: #a0aec0;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        /* Espace publicitaire */
+        .ad-slot {
+            background: #edf2f7;
+            border: 1px dashed #cbd5e0;
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            color: #a0aec0;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a onclick="showPage('home')" class="logo">Plomberie Facile</a>
+            <div class="nav-links">
+                <a onclick="showPage('home')">Accueil</a>
+                <a onclick="showPage('home')">Blog</a>
+                <a onclick="showPage('about')">À propos</a>
+                <a onclick="showPage('contact')">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+        
+        <!-- PAGE D'ACCUEIL AVEC LES 10 ARTICLES -->
+        <section id="home" class="page-section active">
+            <h1>Réparez vos problèmes de plomberie vous-même</h1>
+            <p class="subtitle">Des guides clairs, avec le matériel, les étapes et les erreurs à éviter.</p>
+
+            <h2>Tous nos guides pratiques</h2>
+            
+            <div class="article-list">
+                <div class="article-item" onclick="showPage('art1')">
+                    <div class="article-title">1. Comment déboucher un évier de cuisine naturellement (sans produits chimiques) ?</div>
+                    <div class="article-category">Entretien & Astuces</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art2')">
+                    <div class="article-title">2. Comment réparer une fuite sous l'évier de la salle de bain ?</div>
+                    <div class="article-category">Fuites et joints</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art3')">
+                    <div class="article-title">3. Comment changer le mécanisme complet d'une chasse d'eau ?</div>
+                    <div class="article-category">WC et chasse d'eau</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art4')">
+                    <div class="article-title">4. Comment réparer un mitigeur de douche qui fuit ?</div>
+                    <div class="article-category">Salle de bain</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art5')">
+                    <div class="article-title">5. Pourquoi mon eau chaude ne fonctionne plus et comment la réparer ?</div>
+                    <div class="article-category">Chauffe-eau</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art6')">
+                    <div class="article-title">6. Comment installer un pommeau de douche économique ?</div>
+                    <div class="article-category">Économies d'eau</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art7')">
+                    <div class="article-title">7. Comment déboucher une baignoire avec du bicarbonate et du vinaigre ?</div>
+                    <div class="article-category">Entretien & Astuces</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art8')">
+                    <div class="article-title">8. Comment réparer un WC qui fuit à la base ?</div>
+                    <div class="article-category">WC et chasse d'eau</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art9')">
+                    <div class="article-title">9. Comment régler la pression d'eau de son logement ?</div>
+                    <div class="article-category">Installation générale</div>
+                </div>
+
+                <div class="article-item" onclick="showPage('art10')">
+                    <div class="article-title">10. Comment hiverniser ses tuyaux pour éviter qu'ils gèlent ?</div>
+                    <div class="article-category">Prévention Hiver</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTICLE 1 -->
+        <section id="art1" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment déboucher un évier de cuisine naturellement ?</h1>
+                <p><em>Fini les produits chimiques agressifs ! Le bicarbonate de soude et le vinaigre blanc sont vos meilleurs alliés.</em></p>
+                <h3>Matériel :</h3>
+                <ul><li>Bicarbonate de soude</li><li>Vinaigre blanc</li><li>Eau bouillante</li></ul>
+                <h3>Étapes :</h3>
+                <ol>
+                    <li>Versez une demi-tasse de bicarbonate directement dans la bonde.</li>
+                    <li>Ajoutez une tasse de vinaigre blanc. Une réaction effervescente va se produire.</li>
+                    <li>Laissez agir 15 minutes.</li>
+                    <li>Rincez avec une grande casserole d'eau bouillante.</li>
+                </ol>
+                <div class="ad-slot">[Emplacement Publicitaire - Adsterra]</div>
+            </div>
+        </section>
+
+        <!-- ARTICLE 2 -->
+        <section id="art2" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment réparer une fuite sous l'évier de la salle de bain ?</h1>
+                <p><em>Une flaque d'eau sous le lavabo ? Il faut agir vite pour éviter les dégâts des eaux.</em></p>
+                <h3>Identification :</h3>
+                <p>Passez un doigt sec sur les raccords. La fuite vient souvent du siphon ou des joints en caoutchouc usés.</p>
+                <h3>Étapes :</h3>
+                <ol>
+                    <li>Placez une bassine sous le siphon.</li>
+                    <li>Dévissez le siphon à la main.</li>
+                    <li>Nettoyez-le et remplacez les joints usés.</li>
+                    <li>Si le tuyau est percé, utilisez un ruban d'étanchéité ou remplacez-le.</li>
+                    <li>Revissez et testez.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ARTICLE 3 -->
+        <section id="art3" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment changer le mécanisme complet d'une chasse d'eau ?</h1>
+                <p><em>Quand la chasse fuit ou ne se remplit plus, il est souvent plus simple de tout changer.</em></p>
+                <h3>Étapes :</h3>
+                <ol>
+                    <li>Coupez l'arrivée d'eau.</li>
+                    <li>Videz le réservoir.</li>
+                    <li>Démontez l'ancien mécanisme (flotteur et clapet).</li>
+                    <li>Achetez un kit universel en magasin de bricolage.</li>
+                    <li>Suivez la notice du kit pour installer le nouveau système.</li>
+                    <li>Rouvrez l'eau et réglez le flotteur.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ARTICLE 4 -->
+        <section id="art4" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment réparer un mitigeur de douche qui fuit ?</h1>
+                <p><em>Une goutte à goutte constant dans la douche vide votre chauffe-eau.</em></p>
+                <h3>Solution :</h3>
+                <p>Le problème vient généralement de la <strong>cartouche céramique</strong>.</p>
+                <ol>
+                    <li>Coupez l'eau.</li>
+                    <li>Retirez la vis cachée sous le bouton du mitigeur.</li>
+                    <li>Dévissez le corps du mitigeur.</li>
+                    <li>Retirez la cartouche usée.</li>
+                    <li>Emmenez-la au magasin pour acheter exactement la même.</li>
+                    <li>Remontez la nouvelle.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ARTICLE 5 -->
+        <section id="art5" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Pourquoi mon eau chaude ne fonctionne plus ?</h1>
+                <p><em>Pas d'eau chaude ? Avant d'appeler un plombier, vérifiez ces points.</em></p>
+                <h3>Vérifications de base :</h3>
+                <ul>
+                    <li>Le chauffe-eau est-il allumé ? (Vérifiez le disjoncteur).</li>
+                    <li>Pour un chauffe-eau à gaz : la veilleuse est-elle allumée ?</li>
+                    <li>Si l'eau est tiède, la résistance est peut-être entartrée.</li>
+                </ul>
+                <p>Pour les chauffe-eau électriques, un reset sur le boîtier de sécurité peut suffire.</p>
+            </div>
+        </section>
+
+        <!-- ARTICLE 6 -->
+        <section id="art6" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment installer un pommeau de douche économique ?</h1>
+                <p><em>Réduisez votre facture d'eau en installant un mousseur.</em></p>
+                <h3>Étapes :</h3>
+                <ol>
+                    <li>Dévissez l'ancien pommeau à la main.</li>
+                    <li>Nettoyez le pas de vis.</li>
+                    <li>Vissez le nouveau pommeau économique (qui mélange l'eau et l'air).</li>
+                    <li>Testez la pression, ça devrait être suffisant pour une douche agréable.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ARTICLE 7 -->
+        <section id="art7" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Déboucher une baignoire avec du bicarbonate et du vinaigre</h1>
+                <p><em>La recette naturelle pour des cheveux et du savon coincés.</em></p>
+                <h3>Méthode :</h3>
+                <ol>
+                    <li>Enlevez la grille de la bonde.</li>
+                    <li>Versez 100g de bicarbonate.</li>
+                    <li>Versez 200ml de vinaigre blanc chaud.</li>
+                    <li>Bouchez immédiatement l'évacuation avec un chiffon pour concentrer l'action.</li>
+                    <li>Attendez 30 minutes, puis rincez à l'eau très chaude.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ARTICLE 8 -->
+        <section id="art8" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment réparer un WC qui fuit à la base ?</h1>
+                <p><em>Une fuite au pied des toilettes est souvent causée par le joint de la cuvette.</em></p>
+                <h3>Solution :</h3>
+                <ol>
+                    <li>Coupez l'arrivée d'eau et videz le réservoir.</li>
+                    <li>Dévissez les écrous qui fixent la cuvette au sol.</li>
+                    <li>Soulevez la cuvette (attention, c'est lourd).</li>
+                    <li>Retirez l'ancien joint (souvent en cire).</li>
+                    <li>Placez un nouveau joint en cire ou en silicone.</li>
+                    <li>Repositionnez la cuvette et revissez.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ARTICLE 9 -->
+        <section id="art9" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment régler la pression d'eau de son logement ?</h1>
+                <p><em>Une pression trop forte abîme les tuyaux, une pression trop faible gêne la douche.</em></p>
+                <h3>Où trouver le régulateur :</h3>
+                <p>Il se trouve généralement après le compteur d'eau général. C'est une vis ou un écrou sous un capot.</p>
+                <h3>Réglage :</h3>
+                <ul>
+                    <li>Vissez dans le sens horaire pour <strong>réduire</strong> la pression.</li>
+                    <li>Dévissez pour <strong>augmenter</strong> la pression (attention à ne pas dépasser 3 bars).</li>
+                    <li>Ouvrez un robinet à chaque réglage pour tester.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ARTICLE 10 -->
+        <section id="art10" class="page-section">
+            <a onclick="showPage('home')" class="back-btn">&larr; Retour aux guides</a>
+            <div class="article-content">
+                <h1>Comment hiverniser ses tuyaux pour éviter qu'ils gèlent ?</h1>
+                <p><em>L'eau qui gèle dans les tuyaux peut les faire éclater, causant de lourds dégâts.</em></p>
+                <h3>Prévention :</h3>
+                <ol>
+                    <li>Calorifugez les tuyaux exposés (sous-sol, garage) avec de la mousse isolante.</li>
+                    <li>Si vous vous absentez en hiver, laissez les robinets légèrement ouverts (un filet d'eau).</li>
+                    <li>Ouvrez les portes des placards sous les éviers pour laisser la chaleur de la pièce circuler.</li>
+                    <li>Si vous partez longtemps, coupez l'eau générale et vidangez les tuyaux.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- PAGE À PROPOS -->
+        <section id="about" class="page-section">
+            <h1>À propos de Plomberie Facile</h1>
+            <p>Bienvenue ! Je suis un passionné de bricolage et de plomberie. J'ai créé ce site pour partager mes astuces et vous aider à résoudre vos petits problèmes du quotidien sans avoir à appeler un professionnel.</p>
+        </section>
+
+        <!-- PAGE CONTACT -->
+        <section id="contact" class="page-section">
+            <h1>Contactez-nous</h1>
+            <p>Une question sur un tutoriel ? Une suggestion ? N'hésitez pas à nous écrire.</p>
+            <p><strong>Email :</strong> contact@plomberie-facile.com</p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 Plomberie Facile &middot; <a onclick="showPage('about')">Mentions légales</a> &middot; <a onclick="showPage('about')">Confidentialité</a>
+    </footer>
+
+    <!-- JAVASCRIPT POUR LA NAVIGATION -->
+    <script>
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById(pageId);
+            if(targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo(0, 0); 
+            }
+        }
+    </script>
+
+    <!-- 
+    ⚠️ C'EST ICI QUE VOUS COLLEREZ VOS CODES ADSTERRA ⚠️
+    Collez le code de votre "Social Bar" ou de vos bannières juste en dessous de cette ligne.
+    -->
+
+</body>
+</html>
